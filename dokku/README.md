@@ -8,9 +8,10 @@ https://dokku.com/
 
 ## prerequisites:
 
-- your dokku server already has required ports open
-- you are using the default nginx proxy plugin
-- you have a global domain
+- server running a [dokku](https://dokku.com/) instance which:
+  - already has required ports open
+  - uses the default nginx proxy plugin
+  - has a global domain configured
 
 ## commands
 
@@ -36,7 +37,7 @@ dokku letsencrypt:enable aquadoggo
 # dokku doesn't support setting proxy ports for UDP traffic so we do that via `docker-options` args
 dokku docker-options:add aquadoggo deploy -p 2022:2022/udp
 
-# unfortunately customizing the docker run command (above) means we need to disable zero-downtime 
+# unfortunately customizing the docker run command (above) means we need to disable zero-downtime
 #deploys in order to avoid port conflicts on rebuild.
 dokku checks:disable aquadoggo
 
@@ -44,4 +45,17 @@ dokku checks:disable aquadoggo
 dokku config:set aquadoggo BLOBS_BASE_PATH=/app/data DATABASE_URL=sqlite:/app/data/db.sqlite3 LOG_LEVEL=debug PRIVATE_KEY=/app/data/secret.txt
 ```
 
+Your aquadoggo http endpoints will now be available at `https://aquadoggo.<YOUR_GLOBAL_DOMAIN>`
 
+# cost
+
+dokku is free open-source software, you can provision an instance yourself at no cost. You do need
+a server where you can run your dokku instance though, this will come with monthly costs according
+to whichever host you choose.
+
+# comments
+
+If you don't already have a dokku instance running then I wouldn't recommend this method, it's
+overkill\* (unless you're interested in exploring dokku anyway...).
+
+_\*not to dis dokku, I really like it and use it a lot_

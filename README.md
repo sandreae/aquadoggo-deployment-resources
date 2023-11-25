@@ -17,10 +17,12 @@ a p2panda network. Specifically, this means deploying an `aquadoggo` node somewh
 
 ## Documented deployments
 
-- [] no-platform
+- [] no-platform (basic)
+- [] no-platform (system service)
+- [] RPi (LAN only)
 - [] docker
 - [x] dokku
-- [] fly.io
+- [x] fly.io
 - [] ansible
 
 Note that all the deployments will only include basic configuration of the `aquadoggo` node. You

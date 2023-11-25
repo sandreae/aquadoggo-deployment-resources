@@ -1,0 +1,58 @@
+# fly.toml app configuration file
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "aquadoggo"
+primary_region = "lhr"
+
+# docker image pulled from docker hub
+[build]
+  image = "p2panda/aquadoggo"
+
+# open required ports for http traffic, fly.io takes care of TLS certs
+[[services]]
+  internal_port = 2020
+  protocol = "tcp"
+  # important, without this you would start paying for resource quite soon
+  auto_stop_machines = true 
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+    force_https = true
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+# open ports for UDP (replication) traffic
+[[services]]
+  internal_port = 2022
+  protocol = "udp"
+  # important, without this you would start paying for resource quite soon
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  [[services.ports]]
+    port = 2022
+
+# allocate resources (we could manage with less than this)
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 1024
+
+# mount persistent storage
+[mounts]
+  source="aquadoggo"
+  destination="/data"
+
+# configure the node using environment variables
+[env]
+  LOG_LEVEL = "debug"
+  PRIVATE_KEY = "/data/secret.txt"
+  DATABASE_URL = "sqlite:/data/db.sqlite3"
+  BLOBS_BASE_PATH = "/data"
+  RELAY_MODE = "true"

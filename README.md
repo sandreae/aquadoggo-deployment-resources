@@ -13,6 +13,6 @@ PRs for not-yet-documented platforms welcome :-]
 
 - [] no-platform
 - [] docker
-- [] dokku
+- [x] dokku
 - [] fly.io
 - [] ansible

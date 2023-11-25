@@ -6,14 +6,16 @@ An incomplete collection of "playbooks" documenting the required steps for deplo
 ## Why this?
 
 All p2p networks which connect peers over The Internet require some publicly deployed
-infrastructure for aiding in discovery, connectivity between inaccessible peers, and often for
-increasing data availability.
+infrastructure for helping peers discover each other and form stable connections. In some cases
+they are also used for improving data availability.
 
-If you want to run your own small/medium p2p network, this often means deploying the
-infrastructure yourself. Doing this in a reliable and sustainable way can be a pain...
+If you want to run your own small/medium p2p network, this often means someone deploying and
+maintaining this infrastructure. Doing this in a reliable and sustainable way can be a pain...
+Even using familiar tools there can be time consuming hidden pitfalls.
 
-This repository is for collecting common, low-cost, patterns for deploying this infrastructure for
-a p2panda network. Specifically, this means deploying an `aquadoggo` node somewhere at a public address.
+With this repository I aim to document deployment of an `aquadoggo` node for a p2panda network
+(which performs the above mentioned functions) on some of the most common platforms (and
+no-platforms). Hopefully it will be a useful resource for others.
 
 ## Documented deployments
 
@@ -33,5 +35,6 @@ will need to adjust the configuration to suit your needs, please see the relevan
 
 PRs for not-yet-documented platforms welcome :-]
 
-## Notes
+## Next steps
+
 - the scope of this repo could be expanded to include documentation for other p2p networks

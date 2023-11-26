@@ -1,7 +1,7 @@
 # `aquadoggo` deployment resources
 
 An incomplete collection of "playbooks" documenting the required steps for deploying a public
-[`aquadoggo`](https://github.com/p2panda/aquadoggo) node.
+[`aquadoggo`](https://github.com/p2panda/aquadoggo) node using a variety of common methods.
 
 ## Why this?
 
@@ -19,7 +19,7 @@ no-platforms). Hopefully it will be a useful resource for others.
 
 ## Documented deployments
 
-- [] no-platform (basic)
+- [x] no-platform (basic)
 - [] no-platform (system service)
 - [] RPi (LAN only)
 - [] docker
@@ -33,8 +33,7 @@ will need to adjust the configuration to suit your needs, please see the relevan
 
 ## Contributions
 
+The list of deployment methods above is not exhaustive, just those that came to mind, please
+suggest more which could be added to the TODO list.
 PRs for not-yet-documented platforms welcome :-]
-
-## Next steps
-
-- the scope of this repo could be expanded to include documentation for other p2p networks
+If spot any mistakes please let me know (or fix them for me...)

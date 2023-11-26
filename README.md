@@ -20,12 +20,12 @@ no-platforms). Hopefully it will be a useful resource for others.
 ## Documented deployments
 
 - [x] no-platform (basic)
-- [] no-platform (system service)
-- [] RPi (LAN only)
-- [] docker
+- [ ] no-platform (system service)
+- [ ] RPi (LAN only)
+- [ ] docker
 - [x] dokku
 - [x] fly.io
-- [] ansible
+- [ ] ansible
 
 Note that all the deployments will only include basic configuration of the `aquadoggo` node. You
 will need to adjust the configuration to suit your needs, please see the relevant
